@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loggine - Fast and Scalable Log Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0b1c2f;
+            color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1.25rem;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 56.25rem; /* 900px */
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.5));
+            backdrop-filter: blur(0.625rem); /* 10px */
+            border-radius: 0.625rem; /* 10px */
+            box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.5); /* 10px 30px */
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3rem; /* 48px */
+            margin-bottom: 1.25rem; /* 20px */
+        }
+
+        h1 span.log {
+            color: #00c1ff;
+        }
+
+        h1 span.gine {
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.6;
+            color: #d0d0d0;
+            margin-bottom: 1.875rem; /* 30px */
+        }
+
+        .logo {
+            width: 9.375rem; /* 150px */
+            height: auto;
+            margin-bottom: 1.25rem; /* 20px */
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Feature Cards with Icons */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.625rem; /* 10px */
+        }
+
+        .feature-card {
+            background-color: #142e4f;
+            padding: 1.25rem; /* 20px */
+            border-radius: 0.625rem; /* 10px */
+            flex-basis: calc(33.33% - 0.625rem); /* - 10px */
+            box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2); /* 4px 10px */
+            transition: transform 0.3s;
+            text-align: left;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-0.3125rem); /* 5px */
+        }
+
+        .feature-card .icon {
+            font-size: 2rem; /* 32px */
+            color: #00c1ff;
+            margin-bottom: 0.625rem; /* 10px */
+        }
+
+        .feature-card h3 {
+            color: #00c1ff;
+            margin-bottom: 0.625rem; /* 10px */
+            font-size: 1.25rem; /* 20px */
+        }
+
+        .feature-card p {
+            color: #d0d0d0;
+            font-size: 1rem; /* 16px */
+            line-height: 1.4;
+        }
+
+        /* Buttons */
+        .github-link {
+            display: inline-block;
+            margin-top: 1.875rem; /* 30px */
+            padding: 0.75rem 1.5625rem; /* 12px 25px */
+            font-size: 1.125rem; /* 18px */
+            background-color: #00c1ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.3125rem; /* 5px */
+            transition: background-color 0.3s ease;
+        }
+
+        .github-link:hover {
+            background-color: #007ea7;
+        }
+
+        footer {
+            margin-top: 2.5rem; /* 40px */
+            font-size: 0.875rem; /* 14px */
+            color: #aaa;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(1.25rem); /* 20px */
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-0.625rem); /* 10px */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .feature-card {
+                flex-basis: 100%;
+                margin-bottom: 1.25rem; /* 20px */
+            }
+
+            h1 {
+                font-size: 2.25rem; /* 36px */
+            }
+
+            .container {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <img src="assets/logo.png" alt="Loggine Logo" class="logo">
+    <h1><span class="log">Log</span><span class="gine">gine</span></h1>
+    <p>Loggine is a fast and scalable log storage engine designed to handle millions of logs per second.</p>
+
+    <!-- Feature Cards Section with Icons -->
+    <div class="features">
+        <div class="feature-card">
+            <i class="fas fa-tachometer-alt icon"></i>
+            <h3>High Write Throughput</h3>
+            <p>Loggine handles millions of logs per second, ensuring reliable data capture without performance loss.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-compress icon"></i>
+            <h3>Intelligent Compression</h3>
+            <p>Advanced compression reduces storage needs while maintaining log accuracy and accessibility.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-network-wired icon"></i>
+            <h3>Sharding & Distribution</h3>
+            <p>Efficiently scale across clusters with automated sharding and distribution for large-scale logging.</p>
+        </div>
+    </div>
+
+    <!-- GitHub Button -->
+    <a href="https://github.com/yourusername/loggine" class="github-link">GitHub Repository</a>
+
+    <footer>
+        © 2024 Loggine - All Rights Reserved
+    </footer>
+</div>
+</body>
+
+</html>
